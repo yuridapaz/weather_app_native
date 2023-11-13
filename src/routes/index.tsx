@@ -2,10 +2,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 
 import Home from '../screens/Home';
-import Home2 from '../screens/Search';
+
 import { StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Search from '../screens/Search';
+import Favorites from '../screens/Favorites';
+
 const { Navigator, Screen } = createBottomTabNavigator();
 
 const customTabBarStyle = {
@@ -19,7 +20,7 @@ export function Routes() {
     <NavigationContainer>
       <Navigator
         screenOptions={{
-          headerShown: true,
+          headerShown: false,
           tabBarStyle: {
             backgroundColor: '#fff',
           },
@@ -41,21 +42,8 @@ export function Routes() {
           }}
         />
         <Screen
-          name='search'
-          component={Home2}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <Icon
-                name='search'
-                size={size}
-                color={color}
-              />
-            ),
-          }}
-        />
-        <Screen
           name='favorites'
-          component={Search}
+          component={Favorites}
           options={{
             tabBarIcon: ({ color, size }) => (
               <Icon

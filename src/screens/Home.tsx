@@ -1,13 +1,19 @@
-import { Text, View, StyleSheet, Linking } from 'react-native';
+import { Text, View, StyleSheet, Linking, Image } from 'react-native';
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { ScrollView } from 'react-native';
 import { COLORS, SHADOWS, SIZES } from '../constants';
+import { StatusBar } from 'expo-status-bar';
 
 export class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar style='dark' />
+        <Image
+          blurRadius={70}
+          source={require('../../assets/bg2.jpeg')}
+          style={{ position: 'absolute', width: '100%', height: '100%' }}
+        />
         <View style={styles.temperatureContainer}>
           <View style={styles.headerContainer}>
             <View style={styles.headerContainerCities}>
@@ -75,142 +81,27 @@ export class Home extends Component {
               Next 7 days
             </Text>
           </View>
-          <ScrollView
-            style={styles.temperatureView}
-            horizontal
+          {/* <FlatList /> */}
+
+          <View
+            style={{
+              padding: SIZES.small,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
           >
-            {/* <View
+            <Text
               style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                padding: SIZES.small,
+                fontSize: SIZES.small,
+                marginBottom: 8,
+                color: COLORS.gray,
               }}
             >
-              <Text style={{ fontSize: SIZES.xLarge }}>00</Text>
-              <Text style={{ fontSize: SIZES.xLarge }}>00</Text>
-              <Text style={{ fontSize: SIZES.xLarge }}>24°</Text>
-            </View> */}
-            <View
-              style={{
-                padding: SIZES.small,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Text style={{ fontSize: SIZES.small, marginBottom: 8 }}>
-                00 PM
-              </Text>
-              <Text style={{ fontSize: SIZES.medium, marginBottom: 8 }}>
-                00
-              </Text>
-              <Text style={{ fontSize: SIZES.medium }}>24°</Text>
-            </View>
-            <View
-              style={{
-                padding: SIZES.small,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Text style={{ fontSize: SIZES.small, marginBottom: 8 }}>
-                00 PM
-              </Text>
-              <Text style={{ fontSize: SIZES.medium, marginBottom: 8 }}>
-                00
-              </Text>
-              <Text style={{ fontSize: SIZES.medium }}>24°</Text>
-            </View>
-            <View
-              style={{
-                padding: SIZES.small,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Text style={{ fontSize: SIZES.small, marginBottom: 8 }}>
-                00 PM
-              </Text>
-              <Text style={{ fontSize: SIZES.medium, marginBottom: 8 }}>
-                00
-              </Text>
-              <Text style={{ fontSize: SIZES.medium }}>24°</Text>
-            </View>
-            <View
-              style={{
-                padding: SIZES.small,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Text style={{ fontSize: SIZES.small, marginBottom: 8 }}>
-                00 PM
-              </Text>
-              <Text style={{ fontSize: SIZES.medium, marginBottom: 8 }}>
-                00
-              </Text>
-              <Text style={{ fontSize: SIZES.medium }}>24°</Text>
-            </View>
-            <View
-              style={{
-                padding: SIZES.small,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Text style={{ fontSize: SIZES.small, marginBottom: 8 }}>
-                00 PM
-              </Text>
-              <Text style={{ fontSize: SIZES.medium, marginBottom: 8 }}>
-                00
-              </Text>
-              <Text style={{ fontSize: SIZES.medium }}>24°</Text>
-            </View>
-            <View
-              style={{
-                padding: SIZES.small,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Text style={{ fontSize: SIZES.small, marginBottom: 8 }}>
-                00 PM
-              </Text>
-              <Text style={{ fontSize: SIZES.medium, marginBottom: 8 }}>
-                00
-              </Text>
-              <Text style={{ fontSize: SIZES.medium }}>24°</Text>
-            </View>
-            <View
-              style={{
-                padding: SIZES.small,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Text style={{ fontSize: SIZES.small, marginBottom: 8 }}>
-                00 PM
-              </Text>
-              <Text style={{ fontSize: SIZES.medium, marginBottom: 8 }}>
-                00
-              </Text>
-              <Text style={{ fontSize: SIZES.medium }}>24°</Text>
-            </View>
-            <View
-              style={{
-                padding: SIZES.small,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Text style={{ fontSize: SIZES.small, marginBottom: 8 }}>
-                00 PM
-              </Text>
-              <Text style={{ fontSize: SIZES.medium, marginBottom: 8 }}>
-                00
-              </Text>
-              <Text style={{ fontSize: SIZES.medium }}>24°</Text>
-            </View>
-          </ScrollView>
+              00 PM
+            </Text>
+            <Text style={{ fontSize: SIZES.medium, marginBottom: 8 }}>00</Text>
+            <Text style={{ fontSize: SIZES.large }}>24°</Text>
+          </View>
         </View>
       </View>
     );
@@ -220,8 +111,9 @@ export class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#a8a0a0',
+    // padding: 20,
+    position: 'relative',
+    // backgroundColor: '#a8a0a0',
   },
   temperatureContainer: {
     paddingHorizontal: 20,
